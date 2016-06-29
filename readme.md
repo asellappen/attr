@@ -2,6 +2,8 @@
 
 > A basic getter/setter mixin that abstracts accessing a data map.
 
+## Proposed API
+
 ```javascript
 import Attr from 'attr';
 
