@@ -1,0 +1,86 @@
+{
+  "name": "attr",
+  "version": "0.0.1",
+  "description": "A basic getter/setter mixin that abstracts accessing a data map.",
+  "main": "attr.js",
+  "scripts": {
+    "build": "steal-tools",
+    "lint": "xo",
+    "test": "xo && testee --browsers firefox test.html",
+    "prepublish": "npm run build",
+    "publish": "git push origin --tags",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "document": "documentjs"
+  },
+  "keywords": [
+    "attr",
+    "object",
+    "getter",
+    "setter"
+  ],
+  "author": "Juan Orozco <hi@juanorozco.com> (http://juanorozco.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "debug": "^2.2.0",
+    "documentjs": "^0.4.4",
+    "mocha": "^2.5.3",
+    "steal": "^0.16.22",
+    "steal-mocha": "0.0.3",
+    "steal-tools": "^0.16.5",
+    "testee": "^0.2.5",
+    "xo": "^0.16.0"
+  },
+  "system": {
+    "ignoreBrowser": true,
+    "npmIgnore": [
+      "documentjs",
+      "testee",
+      "steal-tools",
+      "xo"
+    ],
+    "npmAlgorithm": "flat",
+    "npmDependencies": [
+      "steal-qunit"
+    ],
+    "paths": {
+      "mocha": "node_modules/mocha/mocha.js",
+      "chai": "node_modules/chai/chai.js"
+    },
+    "meta": {
+      "mocha": {
+        "format": "global",
+        "exports": "mocha"
+      },
+      "chai": {
+        "format": "global",
+        "exports": "chai"
+      }
+    }
+  },
+  "xo": {
+    "esnext": true,
+    "space": 4,
+    "envs": [
+      "node",
+      "mocha"
+    ],
+    "rules": {
+      "no-lonely-if": 0,
+      "no-else-return": 0,
+      "spaced-comment": 0,
+      "no-warning-comments": 0
+    },
+    "globals": [
+      "steal",
+      "chai"
+    ],
+    "ignore": [
+      "node_modules/**",
+      "dist/**",
+      "docs/**"
+    ]
+  }
+}
