@@ -1,5 +1,7 @@
 # Attr
 
+[![Build Status](https://travis-ci.org/Macrofig/attr.svg?branch=master)](https://travis-ci.org/Macrofig/attr)
+
 > A basic getter/setter mixin that abstracts accessing a data map.
 
 ## Proposed API
