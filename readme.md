@@ -4,7 +4,30 @@
 
 > A basic getter/setter mixin that abstracts accessing a data map.
 
-## Proposed API
+## Installing
+
+Using npm:
+
+`npm install https://github.com/Macrofig/attr/tree/v0.1.0`
+
+### Build
+
+The code is in ES6 but it can be transpiled into AMD, CommonJS, or global modules.
+
+- Clone to your machine: `git clone https://github.com/Macrofig/attr`
+- `cd attr`
+- `npm install`
+- Run the build `npm run build`
+
+This will create a `dist` folder with three bundles, one for each of the following:
+
+- AMD
+- CommonJS
+- Global
+
+Use the appropriate bundle as needed. :)
+
+## Usage
 
 ```javascript
 import Attr from 'attr';
