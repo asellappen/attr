@@ -1,8 +1,10 @@
-/* jshint asi: false */
+/* eslint no-loop-func: 0*/
 import 'chai';
+import debug from 'debug';
 import 'steal-mocha';
 import {toString, set, get, setMany} from '../../lib/helpers';
 
+const log = debug('attr:test:helpers');
 const expect = chai.expect;
 const testObjects = [
     {number: 100},
@@ -11,15 +13,14 @@ const testObjects = [
     {object: {name: 'juan'}}
 ];
 const testMap = {};
-
-for (var i = 0; i < testObjects.length; i++) {
-    const item = testObjects[i];
-    const key = Object.keys(item)[0];
-    testMap[key] = item;
-}
-
 let resp;
 let testObj = {};
+
+for (let i = 0; i < testObjects.length; i++) {
+    const item = testObjects[i];
+    const key = Object.keys(item)[0];
+    testMap[key] = item[key];
+}
 
 describe('helpers', () => {
     beforeEach(() => {
@@ -28,7 +29,7 @@ describe('helpers', () => {
     });
 
     describe('toString function', () => {
-        for (var i = 0; i < testObjects.length; i++) {
+        for (let i = 0; i < testObjects.length; i++) {
             const item = testObjects[i];
             const key = Object.keys(item)[0];
 
@@ -39,7 +40,7 @@ describe('helpers', () => {
             it(`converts ${key} to string`, () => {
                 expect(toString(item)).to.equal(item.toString());
             });
-        };
+        }
     });
 
     describe('when set function is called', () => {
@@ -57,21 +58,21 @@ describe('helpers', () => {
 
     describe('setMany function', () => {
         beforeEach(() => {
-            resp = setMany(testObj, testMap.object);
-            console.log(resp);
+            log('testMap', testMap);
+            resp = setMany(testObj, testMap);
         });
 
         it('returns value', () => {
-            expect(resp).to.eql(testMap.object);
+            expect(resp).to.eql(testMap);
         });
 
-        for (var i = 0; i < testObjects.length; i++) {
+        for (let i = 0; i < testObjects.length; i++) {
             const item = testObjects[i];
             const key = Object.keys(item)[0];
             it('sets property value', () => {
-                expect(resp[key]).to.equal(item);
+                expect(resp[key]).to.equal(item[key]);
             });
-        };
+        }
     });
 
     describe('get function', () => {

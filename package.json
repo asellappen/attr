@@ -4,7 +4,7 @@
   "description": "A basic getter/setter mixin that abstracts accessing a data map.",
   "main": "attr.js",
   "scripts": {
-    "build": "steal-tools",
+    "build": "node ./bin/build.js",
     "lint": "xo",
     "test": "xo && testee --browsers firefox test.html",
     "prepublish": "npm run build",
@@ -21,7 +21,7 @@
     "setter"
   ],
   "author": "Juan Orozco <hi@juanorozco.com> (http://juanorozco.com)",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
     "debug": "^2.2.0",
