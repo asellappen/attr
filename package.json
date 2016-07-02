@@ -1,6 +1,6 @@
 {
   "name": "attr",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A basic getter/setter mixin that abstracts accessing a data map.",
   "main": "attr.js",
   "scripts": {
