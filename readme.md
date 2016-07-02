@@ -4,28 +4,13 @@
 
 > A basic getter/setter mixin that abstracts accessing a data map.
 
+> Special thanks to [@Krisk](https://www.npmjs.com/~krisk) for the NPM package name.
+
 ## Installing
 
-Using npm:
+Using npm: `npm install attr --save`
 
-`npm install https://github.com/Macrofig/attr/tree/v0.1.0`
-
-### Build
-
-The code is in ES6 but it can be transpiled into AMD, CommonJS, or global modules.
-
-- Clone to your machine: `git clone https://github.com/Macrofig/attr`
-- `cd attr`
-- `npm install`
-- Run the build `npm run build`
-
-This will create a `dist` folder with three bundles, one for each of the following:
-
-- AMD
-- CommonJS
-- Global
-
-Use the appropriate bundle as needed. :)
+Latest code can be found here: https://github.com/Macrofig/attr
 
 ## Usage
 
@@ -42,6 +27,8 @@ attr(); //> { name: 'Optimus Prime' }
 
 or
 
+> NOTE: It is not recommended to append to the `Object` prototype. This is just a simple example on how to attach `attr` to your custom class.
+
 ```javascript
 import Attr from 'attr';
 
@@ -49,13 +36,51 @@ const myObj = { name: 'Juan' };
 Object.prototype.attr = Attr();
 
 myObj.attr('name'); //> 'Juan'
+myObj.attr('name', 'Optimus Prime'); //> 'Optimus Prime'
+myObj.attr(); //> { name: 'Optimus Prime' }
 ```
+
+
+## Build
+
+The code is in ES6 but it can be transpiled into AMD, CommonJS, or global modules.  If you are using the NPM package, the `dist` is already available to you.
+
+- Clone to your machine: `git clone https://github.com/Macrofig/attr`
+- `cd attr`
+- `npm install`
+- Run the build `npm run build`
+
+This will create a `dist` folder with three bundles, one for each of the following:
+
+- AMD
+- CommonJS
+- Global
+
+Use the appropriate bundle as needed. :)
+
+## Tests
+
+Make sure you have installed the dependencies (see "Build" above) and have Firefox installed on your machine.
+
+**Command line:**
+
+Simply run `npm run test`.
+
+This will run tests using Firefox so make sure it is installed first.
+
+**Browser:**
+
+Simply run `npm run develop`. This will attempt to start a web server on port `8001`, if successful, it will open your default browser.
+
+Browse to `/tests.html`. Tests will run in the [Mocha](https://mochajs.org/) browser using [StealJS](http://stealjs.com/) and [Testee](http://daffl.github.io/testee.js/).
 
 ## Future
 
+- Test coverage
+- Better documentation
 - Access deep properties with `.` (dot) operator. `myObj.attr('name.last')`
 - Hookable getter/setter. Create any plugin needed to change getter or setter behavior.
-- Get multiple items by passing array (filter)
+- Get multiple items by passing array (filter): `myObj.attr(['name', 'npm']);//> {name: 'Juan', twitter: 'macrofig'}`
 
 
 ## License
