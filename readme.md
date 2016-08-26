@@ -40,6 +40,20 @@ myObj.attr('name', 'Optimus Prime'); //> 'Optimus Prime'
 myObj.attr(); //> { name: 'Optimus Prime' }
 ```
 
+It even works with ES6 Maps...
+
+```javascript
+import Attr from 'attr';
+
+const myMap = new Map({ name: 'Juan' });
+const attr = new Attr(myMap);
+
+myMap.attr('name'); //> 'Juan'
+myMap.attr('name', 'Optimus Prime'); //> 'Optimus Prime'
+myMap.attr(); //> { name: 'Optimus Prime' }
+
+```
+
 
 ## Build
 

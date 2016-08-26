@@ -55,7 +55,7 @@ const Attr = function (ctx) {
         };
     }
     log('...as a function.');
-    return attr;
+    return ctx ? attr.apply(this, arguments) : attr;
 };
 
 export default Attr;
